@@ -12,17 +12,16 @@ class WCSS_Admin_Menu {
     }
 
     public function register_menu() {
+    add_submenu_page(
+        'woocommerce',                 // Parent (WooCommerce)
+        'Supplier Sync',               // Page title
+        'Supplier Sync',               // Menu title
+        'manage_woocommerce',          // Capability
+        'wcss-supplier-sync',           // Slug
+        [ $this, 'render_page' ]        // Callback
+    );
+}
 
-        add_menu_page(
-            'WooCommerce Supplier Sync',      // Page title
-            'Supplier Sync',                  // Menu title
-            'manage_options',                 // Capability
-            'wcss-supplier-sync',             // Menu slug
-            [ $this, 'render_page' ],          // Callback
-            'dashicons-update',               // Icon
-            56                                 // Position
-        );
-    }
 
     public function render_page() {
         echo '<div class="wrap">';
