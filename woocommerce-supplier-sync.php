@@ -16,6 +16,7 @@ define( 'WCSS_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
 // Load core files
 require_once WCSS_PLUGIN_PATH . 'includes/admin/class-admin-menu.php';
+require_once WCSS_PLUGIN_PATH . 'includes/admin/class-settings-page.php';
 
 // Initialize plugin
 add_action( 'plugins_loaded', function () {

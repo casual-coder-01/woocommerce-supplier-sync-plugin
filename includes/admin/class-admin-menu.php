@@ -18,7 +18,8 @@ class WCSS_Admin_Menu {
         'Supplier Sync',               // Menu title
         'manage_woocommerce',          // Capability
         'wcss-supplier-sync',           // Slug
-        [ $this, 'render_page' ]        // Callback
+        [ 'WCSS_Settings_Page', 'render' ]
+       // Callback
     );
 }
 
