@@ -6,28 +6,18 @@
  * Author: Abhinav Thakur
  */
 
-if (!defined('ABSPATH')) {
-    exit; // Prevent direct access
+if ( ! defined( 'ABSPATH' ) ) {
+    exit;
 }
 
-/**
- * Main plugin bootstrap file.
- *
- * This file is intentionally kept minimal.
- * All real logic will live inside the /includes directory.
- */
+// Define constants
+define( 'WCSS_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
+define( 'WCSS_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
-/**
- * Runs when all plugins are loaded.
- *
- * We use this hook as the starting point
- * for initializing our plugin.
- */
- require_once plugin_dir_path(__FILE__) . 'includes/init.php';
+// Load core files
+require_once WCSS_PLUGIN_PATH . 'includes/admin/class-admin-menu.php';
 
-add_action('plugins_loaded', 'wcss_plugin_init');
-{
-    // For now, we only confirm the plugin is loaded.
-    // Real initialization will come in later steps.
-}
-
+// Initialize plugin
+add_action( 'plugins_loaded', function () {
+    new WCSS_Admin_Menu();
+});
