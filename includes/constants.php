@@ -1,14 +1,13 @@
 <?php
-/**
- * Plugin constants.
- *
- * Central place for paths, URLs, and identifiers.
- */
 
-if (!defined('ABSPATH')) {
+if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-define('WCSS_PLUGIN_PATH', plugin_dir_path(dirname(__FILE__)));
-define('WCSS_PLUGIN_URL', plugin_dir_url(dirname(__FILE__)));
-define('WCSS_PLUGIN_VERSION', '1.0.0');
+if ( ! defined( 'WCSS_PLUGIN_PATH' ) ) {
+    define( 'WCSS_PLUGIN_PATH', plugin_dir_path( dirname( __FILE__ ) ) );
+}
+
+if ( ! defined( 'WCSS_PLUGIN_URL' ) ) {
+    define( 'WCSS_PLUGIN_URL', plugin_dir_url( dirname( __FILE__ ) ) );
+}
