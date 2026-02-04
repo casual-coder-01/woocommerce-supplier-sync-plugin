@@ -85,6 +85,23 @@ class WCSS_Settings_Page {
             >
                 Test Connection
             </button>
+            <tr>
+    <th scope="row">Import Products</th>
+    <td>
+
+        <button id="wcss-import-products" class="button button-primary">
+            Import Products
+        </button>
+
+        <p class="description">
+            Import products from supplier API into WooCommerce.
+        </p>
+
+        <div id="wcss-import-result" style="margin-top:10px;"></div>
+
+    </td>
+</tr>
+
 
             <p id="wcss-test-result" style="margin-top:10px;"></p>
         </div>

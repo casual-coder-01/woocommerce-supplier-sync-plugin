@@ -8,7 +8,11 @@ class WCSS_Ajax_Handler {
 
     public function __construct() {
         add_action( 'wp_ajax_wcss_test_connection', [ $this, 'test_connection' ] );
-    }
+        // Product import AJAX action
+        add_action( 'wp_ajax_wcss_import_products', [ $this, 'handle_import_products' ] );
+
+        }
+
 
     public function test_connection() {
 
@@ -36,4 +40,27 @@ class WCSS_Ajax_Handler {
             'message' => 'Connection successful!'
         ]);
     }
+/**
+ * Handle Product Import AJAX Request
+ */
+public function handle_import_products() {
+
+    // Security check
+    check_ajax_referer( 'wcss_nonce', 'nonce' );
+
+    // Create supplier adapter
+    $adapter = new WCSS_JSONPlaceholder_Adapter();
+
+    // Create importer service
+    $importer = new WCSS_Product_Importer();
+
+    // Run import process
+    $result = $importer->import_products( $adapter );
+
+    // Send JSON response
+    wp_send_json( $result );
 }
+
+
+}
+

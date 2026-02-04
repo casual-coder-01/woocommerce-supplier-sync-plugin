@@ -60,6 +60,10 @@ function wcss_boot_plugin() {
 require_once WCSS_PLUGIN_PATH . 'includes/admin/class-admin-menu.php';
 require_once WCSS_PLUGIN_PATH . 'includes/admin/class-settings-page.php';
 require_once WCSS_PLUGIN_PATH . 'includes/admin/class-ajax-handler.php';
+require_once WCSS_PLUGIN_PATH . 'includes/models/interface-supplier-adapter.php';
+require_once WCSS_PLUGIN_PATH . 'includes/models/class-jsonplaceholder-adapter.php';
+require_once WCSS_PLUGIN_PATH . 'includes/sync/class-product-importer.php';
+require_once WCSS_PLUGIN_PATH . 'includes/sync/class-wc-product-creator.php';
 
 new WCSS_Ajax_Handler();
 

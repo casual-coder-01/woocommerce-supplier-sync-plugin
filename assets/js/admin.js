@@ -1,7 +1,12 @@
 console.log("WCSS admin.js loaded");
 
-
 jQuery(document).ready(function ($) {
+
+    /*
+    =====================================
+    Test Connection Button
+    =====================================
+    */
 
     $('#wcss-test-connection').on('click', function () {
 
@@ -25,6 +30,43 @@ jQuery(document).ready(function ($) {
 
     });
 
-});
 
+    /*
+    =====================================
+    Import Products Button
+    =====================================
+    */
+
+    $('#wcss-import-products').on('click', function (e) {
+
+        e.preventDefault();
+
+        const resultBox = $('#wcss-import-result');
+
+        resultBox.css('color', 'black');
+        resultBox.text('Importing products... Please wait.');
+
+        $.post(wcss_ajax.ajax_url, {
+            action: 'wcss_import_products',
+            nonce: wcss_ajax.nonce
+        }, function (response) {
+
+            if (response.success) {
+                resultBox.css('color', 'green');
+                resultBox.text(response.message || response.data?.message);
+            } else {
+                resultBox.css('color', 'red');
+                resultBox.text(response.message || response.data?.message);
+            }
+
+        }).fail(function () {
+
+            resultBox.css('color', 'red');
+            resultBox.text('Import request failed.');
+
+        });
+
+    });
+
+});
 

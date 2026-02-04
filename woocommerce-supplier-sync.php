@@ -23,6 +23,7 @@ add_action( 'plugins_loaded', function () {
     new WCSS_Admin_Menu();
 });  
 
+require_once plugin_dir_path( __FILE__ ) . 'includes/constants.php';
 
 require_once WCSS_PLUGIN_PATH . 'includes/init.php';
 
